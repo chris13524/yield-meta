@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@mantine/core": "^5.9.0",
+    "@mantine/hooks": "^5.9.0",
     "@rainbow-me/rainbowkit": "^0.8.0",
     "@types/node": "18.11.10",
     "@types/react": "18.0.26",

@@ -1,4 +1,3 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import '@rainbow-me/rainbowkit/styles.css';
 import {
@@ -13,6 +12,8 @@ import {
   WagmiConfig,
 } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { MantineProvider } from '@mantine/core';
+import Head from 'next/head';
 
 const { chains, provider } = configureChains(
   [
@@ -37,11 +38,19 @@ const wagmiClient = createClient({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <ConnectButton />
-        <Component {...pageProps} />
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <>
+      <Head>
+        <title>Yield Meta</title>
+        <meta name="description" content="Yield meta" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains}>
+          <MantineProvider withGlobalStyles withNormalizeCSS>
+            <Component {...pageProps} />
+          </MantineProvider>
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </>
   );
 }
