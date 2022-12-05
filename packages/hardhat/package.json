@@ -1,0 +1,18 @@
+{
+    "name": "hardhat",
+    "private": true,
+    "scripts": {
+        "test": "hardhat test",
+        "node": "hardhat node --fork https://polygon-mumbai.g.alchemy.com/v2/E0obo9iM1x_92GbGIKj4ZY0i96aFne9M",
+        "deploy": "hardhat compile && hardhat run scripts/deploy.ts --network localhost"
+    },
+    "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.2.1",
+        "@nomiclabs/hardhat-waffle": "^2.0.3",
+        "@types/chai": "^4.3.4",
+        "chai": "^4.3.7",
+        "dotenv": "^16.0.3",
+        "hardhat": "^2.12.3",
+        "ts-node": "^10.9.1"
+    }
+}
